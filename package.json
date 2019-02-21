@@ -1,0 +1,22 @@
+{
+  "name": "andor-legendenkarte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdunisch/andor-legendenkarte.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdunisch/andor-legendenkarte/issues"
+  },
+  "homepage": "https://github.com/mdunisch/andor-legendenkarte#readme",
+  "dependencies": {
+    "marked": "^0.6.1"
+  }
+}
