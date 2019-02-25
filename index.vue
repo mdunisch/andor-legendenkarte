@@ -164,7 +164,7 @@ export default {
   margin: 0;
 }
 
-/* ddd */
+/* Ansicht für die App */
 .card.app {
   background: #ebd188;
   width: auto;
@@ -177,5 +177,6 @@ export default {
 .card.app >>> .right {
   height: 100%;
   overflow: auto;
+  font-size: 17px;
 }
 </style>
