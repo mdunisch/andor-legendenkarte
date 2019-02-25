@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{ 'print': print}">
+  <div class="card" :class="{ 'print': cardType === 'print', 'app': cardType === 'app' }">
     <div class="left" :class="{ 'left_letter': cardData.type === 'letter' }">
       <div class="name">{{ name }}</div>
       <div v-if="(cardData.type === 'letter')" class="number"
@@ -32,13 +32,13 @@ export default {
       type: Object,
       required: true
     },
-    print: {
-      type: Boolean,
-      default: false
-    },
     name: {
       type: String,
       required: true
+    },
+    cardType: {
+      type: String,
+      default: 'edit'
     }
   },
   methods: {
@@ -162,5 +162,20 @@ export default {
 .card >>> ul {
   padding-left: 2rem;
   margin: 0;
+}
+
+/* ddd */
+.card.app {
+  background: #ebd188;
+  width: auto;
+}
+
+.card.app >>> .left{
+  display: none;
+}
+
+.card.app >>> .right {
+  height: 100%;
+  overflow: auto;
 }
 </style>
