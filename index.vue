@@ -168,6 +168,7 @@ export default {
 .card.app {
   background: #ebd188;
   width: auto;
+  height: 100%;
 }
 
 .card.app >>> .left{
@@ -177,6 +178,7 @@ export default {
 .card.app >>> .right {
   height: 100%;
   overflow: auto;
-  font-size: 17px;
+  font-size: 18px;
+  padding-bottom: 20px;
 }
 </style>
