@@ -164,6 +164,15 @@ export default {
   margin: 0;
 }
 
+
+.card >>> ol {
+  padding-left: 1rem;
+}
+
+.card >>> li {
+  padding: 10px 0;
+}
+
 /* Ansicht für die App */
 .card.app {
   background: #ebd188;
