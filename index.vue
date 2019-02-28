@@ -1,6 +1,6 @@
 <template>
   <div class="card" :class="{ 'print': cardType === 'print', 'app': cardType === 'app' }">
-    <div class="left" :class="{ 'left_letter': cardData.type === 'letter' }">
+    <div class="left" :class="{ 'left_letter': cardData.type === 'letter' }" v-if="!(cardType === 'app')">
       <div class="name">{{ name }}</div>
       <div v-if="(cardData.type === 'letter')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
@@ -169,10 +169,6 @@ export default {
   background: #ebd188;
   width: auto;
   height: 100%;
-}
-
-.card.app >>> .left{
-  display: none;
 }
 
 .card.app >>> .right {
