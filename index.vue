@@ -183,7 +183,8 @@ export default {
 .card.app >>> .right {
   height: 100%;
   overflow: auto;
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.2em;
   padding-bottom: 20px;
 }
 </style>
