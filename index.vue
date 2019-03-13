@@ -67,25 +67,8 @@ export default {
   position: relative;
 }
 
-.card.print {
-  padding: 25px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-.card.print >>> .left {
-  background-image: url("./asserts/full/left_ohne.png");
-  border: 1px dashed black;
-  border-right: none;
-  left: -1px;
-}
-
 .left_letter {
   background-image: url("./asserts/mini/left_mit.png");
-}
-
-.card.print >>> .left_letter {
-  background-image: url("./asserts/full/left_mit.png");
 }
 
 .right {
@@ -96,12 +79,6 @@ export default {
   padding: 5px 10px;
   font-size: 13px;
   line-height: 1em;
-}
-
-.card.print >>> .right {
-  background-image: url("./asserts/full/right.png");
-  border: 1px dashed black;
-  border-left: none;
 }
 
 .card .name {
@@ -164,13 +141,37 @@ export default {
   margin: 0;
 }
 
-
 .card >>> ol {
   padding-left: 1rem;
 }
 
 .card >>> li {
-  padding: 10px 0;
+  padding: 2px 0;
+}
+
+/* Ansicht für print css */
+
+.card.print {
+  padding: 25px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.card.print >>> .left {
+  background-image: url("./asserts/full/left_ohne.png");
+  border: 1px dashed black;
+  border-right: none;
+  left: -1px;
+}
+
+.card.print >>> .left_letter {
+  background-image: url("./asserts/full/left_mit.png");
+}
+
+.card.print >>> .right {
+  background-image: url("./asserts/full/right.png");
+  border: 1px dashed black;
+  border-left: none;
 }
 
 /* Ansicht für die App */
@@ -186,5 +187,9 @@ export default {
   font-size: 17px;
   line-height: 1.2em;
   padding-bottom: 20px;
+}
+
+.card.app >>> li {
+  padding: 10px 0;
 }
 </style>
