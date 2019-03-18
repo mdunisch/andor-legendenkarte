@@ -215,4 +215,9 @@ export default {
 .card.app >>> li {
   padding: 10px 0;
 }
+
+.card.app .right.end >>> div {
+  min-height: calc(48% - 25px);
+  height: auto;
+}
 </style>
