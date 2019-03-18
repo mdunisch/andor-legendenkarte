@@ -1,19 +1,23 @@
 <template>
   <div class="card" :class="{ 'print': cardType === 'print', 'app': cardType === 'app' }">
-    <div class="left" :class="{ 'left_letter': cardData.type === 'letter' }" v-if="!(cardType === 'app')">
+    <div class="left" :class="{ 'left_letter': cardData.type === 'letter' || cardData.type === 'end' }" v-if="!(cardType === 'app')">
       <div class="name">{{ name }}</div>
-      <div v-if="(cardData.type === 'letter')" class="number"
+      <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
       >
         {{ cardData.name[0] }}
         <span>{{ cardData.name[1] || '' }}</span>
       </div>
-      <div v-if="(cardData.type != 'letter')" class="cardname">
+      <div v-if="(cardData.type === 'custom')" class="cardname">
         <div class="title">{{ cardData.name }}</div>
         <div>{{ cardData.subname }}</div>
       </div>
     </div>
-    <div class="right" v-html="MDtoHTML(cardData.text || '')"/>
+    <div class="right" v-html="MDtoHTML(cardData.text || '')" v-if="(cardData.type !== 'end')"></div>
+    <div class="right end" v-else>
+      <div class="success" v-html="MDtoHTML(cardData.success || '')"></div>
+      <div class="failure" v-html="MDtoHTML(cardData.failure || '')"></div>
+    </div>
   </div>
 </template>
 
@@ -147,6 +151,25 @@ export default {
 
 .card >>> li {
   padding: 2px 0;
+}
+
+.right.end >>> div {
+  height: calc(48% - 25px);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.right.end >>> .success {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  background: #a4d1e9;
+  border: 2px solid #616b7f;
+}
+
+.right.end >>> .failure {
+  background: #e9bb91;
+  border: 2px solid #7e4a26;
+  transform: rotate(180deg);
 }
 
 /* Ansicht für print css */
