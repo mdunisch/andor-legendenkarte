@@ -153,9 +153,13 @@ export default {
   padding: 2px 0;
 }
 
+.right.end {
+  display: flex;
+  flex-direction: column;
+}
+
 .right.end >>> div {
-  height: calc(48% - 25px);
-  overflow: hidden;
+  flex-grow: 1;
   padding: 10px;
 }
 
@@ -170,6 +174,7 @@ export default {
   background: #e9bb91;
   border: 2px solid #7e4a26;
   transform: rotate(180deg);
+  margin-bottom: 5px;
 }
 
 /* Ansicht für print css */
@@ -214,10 +219,5 @@ export default {
 
 .card.app >>> li {
   padding: 10px 0;
-}
-
-.card.app .right.end >>> div {
-  min-height: calc(48% - 25px);
-  height: auto;
 }
 </style>
