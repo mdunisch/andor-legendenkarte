@@ -1,6 +1,8 @@
 <template>
   <div class="card" :class="{ 'print': cardType === 'print', 'app': cardType === 'app' }">
     <div class="left" :class="{ 'left_letter': cardData.type === 'letter' || cardData.type === 'end' }" v-if="!(cardType === 'app')">
+      <div class="left_number">{{ number }}</div>
+      <div class="right_number">{{ number }}</div>
       <div class="name">{{ name }}</div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
@@ -39,6 +41,10 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    number: {
+      type: String,
+      default: ''
     },
     cardType: {
       type: String,
@@ -83,6 +89,26 @@ export default {
   padding: 5px 10px;
   font-size: 13px;
   line-height: 1em;
+}
+
+.card .left_number,
+.card .right_number {
+  position: absolute;
+  display: block;
+  width: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card .left_number {
+  top: 34px;
+  left: 30px;
+}
+
+.card .right_number {
+  top: 34px;
+  right: 26px;
 }
 
 .card .name {
