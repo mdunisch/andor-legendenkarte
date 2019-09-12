@@ -108,7 +108,7 @@ export default {
 
 .card .right_number {
   top: 34px;
-  right: 26px;
+  right: 27px;
 }
 
 .card .name {
