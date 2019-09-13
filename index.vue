@@ -106,17 +106,10 @@ export default {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
+    top: 34px;
 }
-
-.card .left_number {
-  top: 34px;
-  left: 30px;
-}
-
-.card .right_number {
-  top: 34px;
-  right: 27px;
-}
+.card .left_number { left: 30px; }
+.card .right_number { right: 27px; }
 
 .card .name {
   font-weight: bold;
