@@ -12,6 +12,11 @@
         <div class="title">{{ cardData.name }}</div>
         <div>{{ cardData.subname }}</div>
       </div>
+      <div v-if="(cardData.type === 'put')" class="putcard">
+        <div class="arrow"></div>
+        <div class="title">{{ cardData.name }}</div>
+        <div>Diese Karte wird aufgedeckt, sobald der Erähler das Buchstabenfeld erreicht hat, auf das der Pfeil zeigt.</div>
+      </div>
     </div>
     <div class="right" v-html="MDtoHTML(cardData.text || '')" v-if="(cardData.type !== 'end')"></div>
     <div class="right end" v-else>
@@ -95,16 +100,33 @@ export default {
   padding: 0 40px;
 }
 
-.card .cardname {
+.card .cardname,
+.card .putcard {
   text-align: center;
   position: relative;
   top: 280px;
   margin: 0 40px;
   line-height: 1em;
 }
-.card .cardname .title {
+.card .cardname .title,
+.card .putcard .title {
   font-weight: bold;
   font-size: 17px;
+}
+
+.card .putcard {
+  text-align: left;
+  margin: 0 40px 0 30px;
+}
+.card .putcard .arrow {
+  background-image: url("./asserts/mini/arrow.png");
+  width: 49px;
+  height: 88px;
+  float: left;
+  margin-right: 15px;
+}
+.card .putcard .title {
+  padding-top: 10px;
 }
 
 .card .number {
@@ -200,6 +222,10 @@ export default {
   background-image: url("./asserts/full/right.png");
   border: 1px dashed black;
   border-left: none;
+}
+
+.card.print >>> .card .putcard .arrow {
+  background-image: url("./asserts/full/arrow.png");
 }
 
 /* Ansicht für die App */
