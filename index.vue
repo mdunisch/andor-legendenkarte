@@ -3,11 +3,9 @@
     <div class="left" :class="{ 'left_letter': cardData.type === 'letter' || cardData.type === 'end' }" v-if="!(cardType === 'app')">
       <div class="left_number">{{ number }}</div>
       <div class="right_number">{{ number }}</div>
-      <div v-if="(number === '' || isNaN(number))" class="name">{{ name }}</div>
-      <div v-else class="name series">
-        <div class="legend">Legende</div>
-        <span>{{ number }}</span>
-        <div class="title">{{ name }}</div>
+      <div class="legend">
+        <div v-if="(!isNaN(number) && number != '')" class="series">Legende<br /><span>{{ number }}</span></div>
+        <div class="name">{{ name }}</div>
       </div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
@@ -15,9 +13,7 @@
         {{ cardData.name[0] }}
         <span>{{ cardData.name[1] || '' }}</span>
       </div>
-      <div v-if="(cardData.type === 'custom')" class="cardname"
-      :class="{ 'series' : !isNaN(number) && number != '' }"
-      >
+      <div v-if="(cardData.type === 'custom')" class="cardname">
         <div class="title">{{ cardData.name }}</div>
         <div>{{ cardData.subname }}</div>
       </div>
@@ -111,39 +107,38 @@ export default {
 .card .left_number { left: 30px; }
 .card .right_number { right: 27px; }
 
-.card .name {
-  font-weight: bold;
+.card .legend {
+  position: absolute;
+  width: calc(100% - 60px);
+  top: 115px;
   text-align: center;
-  position: relative;
-  top: 150px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1em;
+  padding: 0 30px;
+}
+.card .name {
+  font-size: 16px;
+}
+.card div.name:only-child {
+  padding-top: 35px;
   font-size: 17px;
   line-height: 1em;
-  padding: 0 40px;
+  margin-top: 35px;
+  padding: 0 10px;
 }
-
-.card .series {
-  top: 115px;
-  padding: 0 30px;
-}
-.card .series .legend {
-  font-size: 20px;
-  padding: 0 30px;
-}
-.card .series span {
+.card .legend .series span {
   font-size: 60px;
   line-height: 1em;
 }
-.card .series .title {
-  font-size: 16px;
-}
 
-.card .cardname,
-.card .cardname .series {
+.card .cardname {
   font-size: 14px;
   font-weight: normal;
   text-align: center;
-  position: relative;
-  top: 280px;
+  position: absolute;
+  width: calc(100% - 80px);
+  top: 350px;
   margin: 0 40px;
   line-height: 1em;
 }
@@ -155,7 +150,6 @@ export default {
 .card .number {
   -webkit-text-stroke: 2px black;
   color: white;
-
   font-size: 100px;
   position: absolute;
   top: 200px;
