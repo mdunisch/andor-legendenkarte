@@ -122,13 +122,11 @@ export default {
   padding: 0 30px;
 }
 .card .name {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1em;
 }
 .card div.name:only-child {
   padding-top: 35px;
-  font-size: 17px;
-  line-height: 1em;
   margin-top: 35px;
   padding: 0 10px;
 }
