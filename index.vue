@@ -4,7 +4,7 @@
       <div class="left_number">{{ number }}</div>
       <div class="right_number">{{ number }}</div>
       <div class="legend">
-        <div v-if="(!isNaN(number) && number != '')" class="series">{{ (series === '') ? 'Legende' : series }}<br /><span>{{ number }}</span></div>
+        <div v-if="(type === 'series')" class="series">{{ (series === '') ? 'Legende' : series }}<br /><span>{{ number.match(/[0-9]/) ? number : '&nbsp;' }}</span></div>
         <div class="name">{{ name }}</div>
       </div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
@@ -44,6 +44,10 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      default: 'single'
     },
     series: {
       type: String,
