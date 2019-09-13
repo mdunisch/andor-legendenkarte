@@ -3,14 +3,21 @@
     <div class="left" :class="{ 'left_letter': cardData.type === 'letter' || cardData.type === 'end' }" v-if="!(cardType === 'app')">
       <div class="left_number">{{ number }}</div>
       <div class="right_number">{{ number }}</div>
-      <div class="name">{{ name }}</div>
+      <div v-if="(number === '' || isNaN(number))" class="name">{{ name }}</div>
+      <div v-else class="name series">
+        <div class="legend">Legende</div>
+        <span>{{ number }}</span>
+        <div class="title">{{ name }}</div>
+      </div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
       >
         {{ cardData.name[0] }}
         <span>{{ cardData.name[1] || '' }}</span>
       </div>
-      <div v-if="(cardData.type === 'custom')" class="cardname">
+      <div v-if="(cardData.type === 'custom')" class="cardname"
+      :class="{ 'series' : !isNaN(number) && number != '' }"
+      >
         <div class="title">{{ cardData.name }}</div>
         <div>{{ cardData.subname }}</div>
       </div>
@@ -121,7 +128,26 @@ export default {
   padding: 0 40px;
 }
 
-.card .cardname {
+.card .series {
+  top: 115px;
+  padding: 0 30px;
+}
+.card .series .legend {
+  font-size: 20px;
+  padding: 0 30px;
+}
+.card .series span {
+  font-size: 60px;
+  line-height: 1em;
+}
+.card .series .title {
+  font-size: 16px;
+}
+
+.card .cardname,
+.card .cardname .series {
+  font-size: 14px;
+  font-weight: normal;
   text-align: center;
   position: relative;
   top: 280px;
