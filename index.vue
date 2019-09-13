@@ -102,7 +102,7 @@ export default {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
-    top: 34px;
+  top: 34px;
 }
 .card .left_number { left: 30px; }
 .card .right_number { right: 27px; }
@@ -119,6 +119,7 @@ export default {
 }
 .card .name {
   font-size: 16px;
+  line-height: 1em;
 }
 .card div.name:only-child {
   padding-top: 35px;
