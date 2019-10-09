@@ -1,7 +1,12 @@
 <template>
   <div class="card" :class="{ 'print': cardType === 'print', 'app': cardType === 'app' }">
     <div class="left" :class="{ 'left_letter': cardData.type === 'letter' || cardData.type === 'end' }" v-if="!(cardType === 'app')">
-      <div class="name">{{ name }}</div>
+      <div class="left_number">{{ number }}</div>
+      <div class="right_number">{{ number }}</div>
+      <div class="legend">
+        <div v-if="(type === 'series')" class="series">{{ (series === '') ? 'Legende' : series }}<br /><span>{{ number.match(/[0-9]/) ? number : '&nbsp;' }}</span></div>
+        <div class="name">{{ name }}</div>
+      </div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
       :class="{ 'single' : cardData.name.length === 1 }"
       >
@@ -39,6 +44,18 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      default: 'single'
+    },
+    series: {
+      type: String,
+      default: ''
+    },
+    number: {
+      type: String,
+      default: ''
     },
     cardType: {
       type: String,
@@ -89,20 +106,50 @@ export default {
   line-height: 1em;
 }
 
-.card .name {
-  font-weight: bold;
+.card .left_number,
+.card .right_number {
+  position: absolute;
+  display: block;
+  width: 20px;
   text-align: center;
-  position: relative;
-  top: 150px;
+  font-weight: bold;
+  font-size: 18px;
+  top: 34px;
+}
+.card .left_number { left: 30px; }
+.card .right_number { right: 27px; }
+
+.card .legend {
+  position: absolute;
+  width: calc(100% - 60px);
+  top: 115px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1em;
+  padding: 0 30px;
+}
+.card .name {
   font-size: 17px;
   line-height: 1em;
-  padding: 0 40px;
+}
+.card div.name:only-child {
+  padding-top: 35px;
+  margin-top: 35px;
+  padding: 0 10px;
+}
+.card .legend .series span {
+  font-size: 60px;
+  line-height: 1em;
 }
 
 .card .cardname {
+  font-size: 14px;
+  font-weight: normal;
   text-align: center;
-  position: relative;
-  top: 280px;
+  position: absolute;
+  width: calc(100% - 80px);
+  top: 350px;
   margin: 0 40px;
   line-height: 1em;
 }
@@ -114,7 +161,6 @@ export default {
 .card .number {
   -webkit-text-stroke: 2px black;
   color: white;
-
   font-size: 100px;
   position: absolute;
   top: 200px;
