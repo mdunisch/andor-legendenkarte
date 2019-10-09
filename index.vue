@@ -128,6 +128,7 @@ export default {
   font-weight: bold;
   line-height: 1em;
   padding: 0 30px;
+  word-break: normal;
 }
 .card .name {
   font-size: 17px;
