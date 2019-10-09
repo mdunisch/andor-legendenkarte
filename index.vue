@@ -82,7 +82,7 @@ export default {
   color: black;
   letter-spacing: -0.2px;
   background: linear-gradient(90deg, #a26f3e 50%, #ebd188 50%);
-  
+
   /* fixes for missing el-dialog__body in mini preview */
   font-size: 14px;
   word-break: normal;
@@ -156,10 +156,11 @@ export default {
   text-align: center;
   position: absolute;
   width: calc(100% - 80px);
-  top: 350px;
   margin: 0 40px;
   line-height: 1em;
 }
+.card .cardname { top: 350px; }
+.card .putcard { top: 315px; }
 .card .cardname .title,
 .card .putcard .title {
   font-weight: bold;
