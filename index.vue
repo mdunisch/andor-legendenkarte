@@ -169,6 +169,7 @@ export default {
 .card .putcard {
   text-align: left;
   margin: 0 40px 0 30px;
+  top: 350px;
 }
 .card .putcard .arrow {
   background-image: url("./asserts/mini/arrow.png");
