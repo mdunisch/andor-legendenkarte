@@ -160,7 +160,7 @@ export default {
   line-height: 1em;
 }
 .card .cardname { top: 350px; }
-.card .putcard { top: 315px; }
+
 .card .cardname .title,
 .card .putcard .title {
   font-weight: bold;
@@ -170,7 +170,7 @@ export default {
 .card .putcard {
   text-align: left;
   margin: 0 40px 0 30px;
-  top: 350px;
+  top: 330px;
 }
 .card .putcard .arrow {
   background-image: url("./asserts/mini/arrow.png");
