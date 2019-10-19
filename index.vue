@@ -4,7 +4,7 @@
       <div class="left_number">{{ number }}</div>
       <div class="right_number">{{ number }}</div>
       <div class="legend">
-        <div v-if="(type === 'series')" class="series">{{ (series === '') ? 'Legende' : series }}<br /><span>{{ number.match(/[0-9]/) ? number : '&nbsp;' }}</span></div>
+        <div v-if="(type === 'series')" class="series">{{ series }}<br /><span>{{ number }}</span></div>
         <div class="name">{{ name }}</div>
       </div>
       <div v-if="(cardData.type === 'letter' || cardData.type === 'end')" class="number"
@@ -119,7 +119,7 @@ export default {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
-  top: 34px;
+  top: 28px;
 }
 .card .left_number { left: 30px; }
 .card .right_number { right: 27px; }
